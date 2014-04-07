@@ -17,8 +17,11 @@
 
       <%= f.label :password_confirmation, "Confirmation" %>
       <%= f.password_field :password_confirmation %>
-
-      <%= f.submit "Create my account", class: "btn btn-large btn-primary" %>
+      <br>
+      <input type="checkbox" name="terms" required> I verify that I have read and accept the <a href='terms'> Terms and Conditions</a>
+</br>
+<br></br>
+      <%= f.submit "Create my account", class: "btn btn-large btn-primary", onclick: "validateCheckbox();" %>
     <% end %>
   </div>
 </div>
