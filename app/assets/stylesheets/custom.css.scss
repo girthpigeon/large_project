@@ -9,6 +9,10 @@ $grayMediumLight: #eaeaea;
   box-sizing: border-box;
 }
 
+.hero-unit {
+  margin-left: 30% !important;
+}
+
 /* forms */
 input, textarea, select, uneditable-input {
   border: 1px solid #bbb;
@@ -178,4 +182,8 @@ aside {
     height: 100px;
     margin-bottom: 5px;
   }
+}
+
+.span4 {
+  width: 250px;
 }
