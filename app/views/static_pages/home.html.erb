@@ -1,7 +1,3 @@
-<div class="center hero-unit">
- <h1>Welcome to You Won't</h1>
-<h2> Challenge everyone to anything!
-</h2>
 <% if signed_in? %>
   <div class='row'>
     <aside class='span4'>
@@ -12,10 +8,23 @@
 	<%= render 'shared/dare_form' %>
       </section>
     </aside>
-  </div>
+<div class="center hero-unit">
+<div class='feed'>
+    <h3>Latest Dares</h3>
+    <%= render 'shared/feed' %>
+</div>
+</div>
+</div>
 <% else %>
-  <p>This is where the challenges will be. </p>
-  <p>You must have an account to accept/post dares.
+<div class="center hero-unit">
+ <h1>Welcome to You Won't</h1>
+<h2> Challenge everyone to anything!
+</h2>
+<div class='feed'>
+    <h3>Latest Dares</h3>
+    <%= render 'shared/feed' %>
+</div>
+<p> You must have an account to accept/post dares. </p>
   <%= link_to "Sign up now!", signup_path, class: "btn btn-large btn-primary" %>
  <% end %>
 </div>

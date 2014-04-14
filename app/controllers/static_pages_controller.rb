@@ -1,6 +1,11 @@
 class StaticPagesController < ApplicationController
   def home
-     @dare = current_user.dares.build if signed_in?
+      if signed_in?
+       @dare = current_user.dares.build
+       @feed_items = current_user.feed.paginate(page: params[:page])
+     else
+     @feed_items = Dare.paginate(:page => params[:page], :per_page => 30)
+     end
   end
 
   def help
