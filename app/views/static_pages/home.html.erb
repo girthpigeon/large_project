@@ -2,7 +2,20 @@
  <h1>Welcome to You Won't</h1>
 <h2> Challenge everyone to anything!
 </h2>
-<div><p>This is where the challenges will be. </p></div>
-<p>You must have an account to accept/post dares.
-<%= link_to "Sign up now!", signup_path, class: "btn btn-large btn-primary" %>
- </div>
+<% if signed_in? %>
+  <div class='row'>
+    <aside class='span4'>
+      <section>
+	<%= render 'shared/user_info' %>
+      </section>
+      <section>
+	<%= render 'shared/dare_form' %>
+      </section>
+    </aside>
+  </div>
+<% else %>
+  <p>This is where the challenges will be. </p>
+  <p>You must have an account to accept/post dares.
+  <%= link_to "Sign up now!", signup_path, class: "btn btn-large btn-primary" %>
+ <% end %>
+</div>

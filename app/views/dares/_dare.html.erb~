@@ -1,0 +1,6 @@
+<li>
+  <span class='content'><%= dare.content %></span>
+  <span class='timestamp'> dared <%= time_ago_in_words(dare.created_at) %> ago.
+</span>
+</li>
+
