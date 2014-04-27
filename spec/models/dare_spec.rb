@@ -19,9 +19,10 @@ describe Dare do
             end.should raise_error(ActiveModel::MassAssignmentSecurity::Error)
             end
         end
-    
+
     describe "when user_id is not present" do
         before { @dare.user_id = nil }
         it { should_not be_valid }
         end
-    end
+  end
+

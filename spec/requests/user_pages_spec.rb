@@ -64,4 +64,11 @@ describe "UserPages" do
       end
     end
   end
+  
+  describe "dare feed should be present on home page when not logged in" do
+      before do
+          visit root_path
+      end
+      it { should have_selector('h3', text: "Latest Dares") }
+  end
 end
