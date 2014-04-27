@@ -73,7 +73,7 @@ describe "UserPages" do
   end
   
   describe "Dare button content changes to 'Accepted' when clicked" do
-      let(:user) { FactoryGirl.create(:user) }
+      let(:user) {FactoryGirl.build(:user)}
       let!(:d1) { FactoryGirl.create(:dare, user: user, content: "Dare") }
       before do
           valid_signin(user)
