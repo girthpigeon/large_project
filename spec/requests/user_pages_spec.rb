@@ -71,4 +71,18 @@ describe "UserPages" do
       end
       it { should have_selector('h3', text: "Latest Dares") }
   end
+  
+  describe "Dare button content changes to 'Accepted' when clicked" do
+      let(:user) { FactoryGirl.create(:user) }
+      let!(:d1) { FactoryGirl.create(:dare, user: user, content: "Dare") }
+      before do
+          valid_signin(user)
+          visit root_path
+          click_button "Accept Dare"
+      end
+      it { should_not have_content("Accept Dare") }
+      it { should have_content("Accepted") }
+    end
+      
+
 end
