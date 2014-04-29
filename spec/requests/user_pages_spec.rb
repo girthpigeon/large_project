@@ -60,6 +60,8 @@ describe "UserPages" do
 
 	it { should have_selector('title', text: user.name) }
 	it { should have_selector('div.alert.alert-success', text: 'Welcome') }
+    #new test ensures user dare history is shown
+    it { should have_selector('h2', text: '0 Dares') }
         it { should have_link('Sign out') }
       end
     end
@@ -72,17 +74,13 @@ describe "UserPages" do
       it { should have_selector('h3', text: "Latest Dares") }
   end
   
-  describe "Dare button content changes to 'Accepted' when clicked" do
+  describe "dare feed should be present on home page when logged in" do
       let(:user) {FactoryGirl.build(:user)}
-      let!(:d1) { FactoryGirl.create(:dare, user: user, content: "Dare") }
       before do
-          valid_signin(user)
+          sign_in user
           visit root_path
-          click_button "Accept Dare"
-      end
-      it { should_not have_content("Accept Dare") }
-      it { should have_content("Accepted") }
-    end
-      
+          end
+      it { should have_selector('h3', text: "Latest Dares") }
+      end      
 
 end

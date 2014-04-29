@@ -9,8 +9,8 @@
     </section>
   </aside>
 <div class="span8">
-  <% if @user.dares.any? %>
     <h2> <%= @user.dares.count %> Dares </h2>
+  <% if @user.dares.any? %>
     <ol class="dares">
       <%= render @dares %>
     </ol>
