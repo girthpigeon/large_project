@@ -1,7 +1,15 @@
 SampleApp::Application.routes.draw do
   resources :users
   resources :sessions, only: [:new, :create, :destroy]
-  resources :dares, only: [:create, :destroy]
+  resources :dares, only: [:create, :destroy, :accept]
+  
+  resources :dares do
+      member do
+          get :accept
+          put :accept
+      end
+  end
+  
 
   match '/signup', to: 'users#new'
   match '/signin', to: 'sessions#new'
