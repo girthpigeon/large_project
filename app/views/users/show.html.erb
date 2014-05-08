@@ -15,7 +15,8 @@
     </ol>
     <%= will_paginate @dares %>
     <% end %>
-    <h2> <%= @user.accepted_feed.count %> Accepted Dares </h2>
+    <div style="padding-top:20px"></div>
+    <h2> <%= @accepted_feed.count %> Accepted Dares </h2>
   <% if @user.accepted_feed.any? %>
     <ol class="dares">
       <%= render @accepted_feed %>
