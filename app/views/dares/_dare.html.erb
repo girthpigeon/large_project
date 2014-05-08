@@ -5,7 +5,7 @@
 </span>
 <% if dare.accepted == true %>
  <span>Accepted by: </span>
-  <%= link_to feed_item.accepted_by %>
+  <%= link_to dare.accepted_by %>
 <% else %>
 <%= link_to 'Accept', :controller => "dares", :action => "accept", method: :put, :id => dare.id, class: "btn btn-primary"  %>
 <% end %>

@@ -2,6 +2,7 @@ class UsersController < ApplicationController
   def show
     @user = User.find(params[:id])
     @dares = @user.dares.paginate(page: params[:page])
+    @accepted_feed = Dare.where(params[:id])
   end
 
   def new

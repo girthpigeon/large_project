@@ -21,6 +21,8 @@ class DaresController < ApplicationController
         flash[:failure] = "Dare already accepted by someone else"
       end
     end
+  
+  
 
   def destroy
   end

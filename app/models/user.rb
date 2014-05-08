@@ -29,6 +29,10 @@ class User < ActiveRecord::Base
       Dare.where("user_id = ?", id)
   end
   
+  def accepted_feed
+      Dare.where("accepted_by = id")
+  end
+  
   private
   def create_remember_token
     self.remember_token = SecureRandom.urlsafe_base64
