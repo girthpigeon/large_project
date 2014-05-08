@@ -3,7 +3,10 @@
   <span class='timestamp'>
    dared <%= time_ago_in_words(dare.created_at) %> ago.
 </span>
-<%= link_to 'Accept', :controller => "dares", :id => dare.id, :action => "accept" %>
-<!--<input class='acceptButton' type="submit" value="Accept Dare"/>-->
+<% if dare.accepted == true %>
+ <span>Accepted by: </span>
+<% else %>
+<%= link_to 'Accept', :controller => "dares", :action => "accept", method: :put, :id => dare.id, class: "btn btn-primary"  %>
+<% end %>
 </li>
 
