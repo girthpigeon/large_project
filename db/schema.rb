@@ -11,14 +11,15 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20140507194754) do
+ActiveRecord::Schema.define(:version => 20140508030143) do
 
   create_table "dares", :force => true do |t|
     t.string   "content"
     t.integer  "user_id"
-    t.datetime "created_at",                    :null => false
-    t.datetime "updated_at",                    :null => false
-    t.boolean  "accepted",   :default => false
+    t.datetime "created_at",                     :null => false
+    t.datetime "updated_at",                     :null => false
+    t.boolean  "accepted",    :default => false
+    t.integer  "accepted_by"
   end
 
   add_index "dares", ["user_id", "created_at"], :name => "index_dares_on_user_id_and_created_at"

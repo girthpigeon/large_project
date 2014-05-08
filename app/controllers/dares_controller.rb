@@ -14,7 +14,7 @@ class DaresController < ApplicationController
   
   def accept
       @dare = Dare.find(params[:id])
-      if @dare.update_attribute(:accepted, "true")
+      if @dare.update_attributes(:accepted => "true", :accepted_by => current_user.id)
           flash[:success] = "Dare accepted"
           redirect_to root_path
       else
