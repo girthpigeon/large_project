@@ -4,7 +4,7 @@ class Dare < ActiveRecord::Base
   
   validates :content, presence: true, length: { maximum: 200 }
   validates :user_id, presence: true
-  validates :accepted, presence: true
+  #validates :accepted, presence: true
   default_scope order: 'dares.created_at DESC'
   
   def accept

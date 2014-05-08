@@ -9,7 +9,7 @@
 <% if feed_item.accepted == true %>
  <span>Accepted </span>
 <% else %>
-<%= link_to 'Accept', :controller => "dares", :action => "accept_dare", method: :put, :id => feed_item.id, class: "btn btn-primary"  %>
+<%= link_to 'Accept', :controller => "dares", :action => "accept", method: :put, :id => feed_item.id, class: "btn btn-primary"  %>
 <% end %>
 <!--<input class='acceptButton' type="submit" value="Accept Dare"/>-->
 </li>
