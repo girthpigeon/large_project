@@ -4,11 +4,12 @@
     <section>
       <h1>
 	<%= gravatar_for @user %>
+	<%= @user.name %>
       </h1>
     </section>
   </aside>
 <div class="span8">
-    <h2> <%= @user.dares.count %> Dares </h2>
+    <h2> <%= pluralize(@user.dares.count, "Dare") %> </h2>
   <% if @user.dares.any? %>
     <ol class="dares">
       <%= render @dares %>
@@ -16,7 +17,7 @@
     <%= will_paginate @dares %>
     <% end %>
     <div style="padding-top:20px"></div>
-    <h2> <%= @accepted_feed.count %> Accepted Dares </h2>
+    <h2> <%= pluralize(@accepted_feed.count, "Accepted Dare") %> </h2>
   <% if @user.accepted_feed.any? %>
     <ol class="dares">
       <%= render @accepted_feed %>
