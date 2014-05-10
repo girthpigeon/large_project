@@ -127,5 +127,28 @@ describe User do
     its(:remember_token) { should_not be_blank }
   end
   
+  describe "dare associations" do
+      
+      before { @user.save }
+      let!(:older_dare) do
+          FactoryGirl.create(:dare, user: @user, created_at: 1.day.ago)
+      end
+      let!(:newer_dare) do
+          FactoryGirl.create(:dare, user: @user, created_at: 1.hour.ago)
+      end
+      
+      it "should have the dares in the correct order" do
+          expect(@user.dares.to_a).to eq [newer_dare, older_dare]
+      end
+      
+      it "should destroy associated microposts" do
+          dares = @user.dares.to_a
+          @user.destroy
+          expect(dares).not_to be_empty
+          dares.each do |dare|
+              expect(dare.where(id: dare.id)).to be_empty
+          end
+      end
+  end
 
 end
