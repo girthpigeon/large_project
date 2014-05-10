@@ -138,7 +138,8 @@ describe User do
       end
       
       it "should have the dares in the correct order" do
-          expect(@user.dares.to_a).to eq [newer_dare, older_dare]
+          dares = @user.dares.to_a
+          expect(dares).to eq [newer_dare, older_dare]
       end
       
       it "should destroy associated microposts" do

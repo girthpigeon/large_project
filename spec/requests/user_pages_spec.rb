@@ -69,14 +69,25 @@ describe "UserPages" do
     
     describe "post dare" do
         let(:user) {FactoryGirl.build(:user)}
-        # before { valid_signup(user) }
+        before do
+            sign_in user
+            visit root_path
+        end
         
-        before { click_link "Home" }
-        
-        
-        
+        describe "with no content" do
+            
+            it "should not post a dare" do
+                expect { click_button "Post" }.not_to change(Dare, :count)
+            end
+            
+            it { should have_selector('h3', text: "Latest Dares") }
+
+            describe "error messages" do
+                before { click_button "Post" }
+                it { should have_content('error') }
+            end
+        end
     end
-    
 end
 
 
