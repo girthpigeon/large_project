@@ -7,13 +7,9 @@ describe "UserPages" do
     describe "profile page" do
         let(:user) { FactoryGirl.create(:user) }
         before { visit user_path(user) }
-        
         it { should have_selector('title', text: user.name) }
-        
-        describe "dare count should be present" do
-            
-        end
-        
+        it { should have_selector('h2', text: 'Dares') }
+        it { should have_selector('h2', text: 'Accepted Dares') }
     end
     
     describe "signup page" do
