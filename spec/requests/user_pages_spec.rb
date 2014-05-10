@@ -35,13 +35,6 @@ describe "UserPages" do
             let(:user) {FactoryGirl.build(:user)}
             before { valid_signup(user) }
             
-            #before do
-            #fill_in "Name", with: "Example User"
-            #fill_in "Email", with: "user@example.com"
-            #fill_in "Password", with: "foobar"
-            #fill_in "Confirmation", with: "foobar"
-            #end
-            
             it "should create a user" do
                 expect { click_button submit }.to change(User, :count).by(1)
             end
@@ -67,27 +60,6 @@ describe "UserPages" do
         it { should have_selector('h2', text: 'Accepted Dares') }
     end
     
-    describe "post dare" do
-        let(:user) {FactoryGirl.build(:user)}
-        before do
-            sign_in user
-            visit root_path
-        end
-        
-        describe "with no content" do
-            
-            it "should not post a dare" do
-                expect { click_button "Post" }.not_to change(Dare, :count)
-            end
-            
-            it { should have_selector('h3', text: "Latest Dares") }
-
-            describe "error messages" do
-                before { click_button "Post" }
-                it { should have_content('error') }
-            end
-        end
-    end
 end
 
 

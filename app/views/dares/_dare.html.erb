@@ -4,10 +4,10 @@
    dared <%= time_ago_in_words(dare.created_at) %> ago.
 </span>
 <% if dare.accepted == true %>
- <span>Accepted by: </span>
+ <span>Accepted by: User #</span>
   <%= link_to dare.accepted_by %>
 <% else %>
-<%= link_to 'Accept', :controller => "dares", :action => "accept", method: :put, :id => dare.id, class: "btn btn-primary"  %>
+<%= link_to 'Accept', :controller => "dares", :action => "accept", method: :put, :id => dare.id %>
 <% end %>
 </li>
 

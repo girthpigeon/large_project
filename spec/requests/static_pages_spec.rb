@@ -75,4 +75,5 @@ describe "StaticPages" do
         click_link "YouWont.us"
         page.should have_selector 'title', text: full_title('')
     end
+
 end

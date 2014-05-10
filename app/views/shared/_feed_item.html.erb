@@ -11,7 +11,7 @@
 <%= link_to feed_item.accepted_by, "/users/"+feed_item.accepted_by.to_s %>
 
 <% else %>
-<%= link_to 'Accept', :controller => "dares", :action => "accept", method: :put, :id => feed_item.id, class: "btn btn-primary"  %>
+<%= link_to 'Accept', :controller => "dares", :action => "accept", method: :put, :id => feed_item.id  %>
 <% end %>
 <!--<input class='acceptButton' type="submit" value="Accept Dare"/>-->
 </li>

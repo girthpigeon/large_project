@@ -19,7 +19,7 @@
     <div style="padding-top:20px"></div>
     <h2> <%= pluralize(@accepted_feed.count, "Accepted Dare") %> </h2>
   <% if @user.accepted_feed.any? %>
-    <ol class="dares">
+    <ol class="accepted dares">
       <%= render @accepted_feed %>
     </ol>
     <%= will_paginate @dares %>

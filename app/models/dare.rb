@@ -7,9 +7,4 @@ class Dare < ActiveRecord::Base
   #validates :accepted, presence: true
   default_scope order: 'dares.created_at DESC'
   
-  #    def accept
-  #    self.accepted = "true"
-  #    self.accepted_by = current_user.id
-  #    self.save
-  #end
 end
