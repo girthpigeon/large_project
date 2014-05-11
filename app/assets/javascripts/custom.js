@@ -3,7 +3,7 @@ $(document).ready(function () {
 		$(this).val("Accepted");
 	    });
 
-        $('.btn').attr('disabled',true);
+        $('.sendButton').attr('disabled',true);
     $('#dareContent').keyup(function(){
         if($(this).val().length !=0){
             $('.sendButton').attr('disabled', false);

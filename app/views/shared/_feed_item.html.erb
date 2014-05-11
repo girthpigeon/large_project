@@ -11,7 +11,11 @@
 <%= link_to feed_item.accepted_by, "/users/"+feed_item.accepted_by.to_s %>
 
 <% else %>
+  <% if signed_in? %>
 <%= link_to 'Accept', :controller => "dares", :action => "accept", method: :put, :id => feed_item.id  %>
+  <% else %>
+  <span>You need to be signed in to accept dares </span>
+<% end %>
 <% end %>
 <!--<input class='acceptButton' type="submit" value="Accept Dare"/>-->
 </li>
